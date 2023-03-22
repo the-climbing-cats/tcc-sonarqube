@@ -22,7 +22,20 @@ by editing `/etc/sysctl.conf` (might need sudo) and add a line `vm.max_map_count
 
 #### Scan project code
 - pull sonarscanner image from docker
-- use sonarscanner command directly from docker inside the directory of the source you want to analyse
+```bash
+docker pull sonarsource/sonar-scanner-cli
+```
+- you can run it with 
+```bash
+  chmod +x scan.sh
+  ./scan.sh <project_location> <project_key> <login_token>
+```
+- or you can use
+```bash
+  bash ./scan.sh <project_location> <project_key> <login_token>
+```
+
+- or use sonarscanner command directly from docker inside the directory of the source you want to analyse
 ```bash
  cd projectSourceCode
  docker run \
